@@ -1,6 +1,6 @@
-#Important!
+# Important!
 
-##If you are using Git bash qote the directory in double quotes like "D:/"
+## If you are using Git bash qote the directory in double quotes like "D:/"
 
 Use 
 
