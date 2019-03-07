@@ -85,11 +85,12 @@ function videoGetters(){
     render.send('videosignaling', playListTitle, contentName);
     count += 1;
     //setTimeout(extractPlayContent, 1000 * 60 * 10);
-    setInterval(function(){
+    let videoChecking = setInterval(function(){
         console.log("Checking New Download");
         render.send('downloadChecking');
     }, 45000);
     render.once('sendNewDownload', function(e){
+        clearInterval(videoChecking);
         extractPlayContent();
     });
 }

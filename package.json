@@ -1,5 +1,5 @@
 {
-  "name": "nodeboot Ph downloader",
+  "name": "nodeboot",
   "version": "0.0.2",
   "description": "Ph Downloader",
   "main": "main.js",

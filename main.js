@@ -55,7 +55,7 @@ function createWindow () {
     //download Funtion
     win.webContents.session.on('will-download', (event, item, webContents) => {
         let fileName = item.getFilename();
-      item.setSavePath(cliData.destination+'/'+global.title+'/'+fileName);
+      item.setSavePath(cliData.destination+'\\'+global.title+'/'+fileName);
       console.info("Assets Downloading Started");
       item.on('updated', (event, state) => {
         if (state === 'interrupted') {
