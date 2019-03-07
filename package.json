@@ -1,13 +1,13 @@
 {
-  "name": "nodeboot",
-  "version": "0.0.1",
-  "description": "",
+  "name": "nodeboot Ph downloader",
+  "version": "0.0.2",
+  "description": "Ph Downloader",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron ."
   },
-  "author": "",
+  "author": "aOwl Beupy",
   "license": "ISC",
   "dependencies": {
     "electron": "^2.0.9",
