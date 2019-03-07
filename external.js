@@ -44,7 +44,7 @@ function downloadAsset() {
         tableContent[0].children[0].click();
         let asset = document.getElementsByClassName('trigger-download');
         asset[0].click();
-        setTimeout(fetchVideo, 1000 * 60 * 25);
+        setTimeout(fetchVideo, 1000 * 60 * 10);
     }else{
         alert("Ahh! Contact my creator this playlist is out of my bound area.")
     }
@@ -61,7 +61,7 @@ function startFetching() {
         count = 0;
         extractPlayContent();
     }else{
-        alert("Fetch complete Don't stop script now maybe data is still on download");
+        window.document.write = "<h1>Fetch Complete check video files before closing maybe files are in download</h1>";
     }
     
 }
@@ -71,7 +71,7 @@ function extractPlayContent(){
         console.log(playContent);
         console.log(playContent[0]);
         playContent[0].children[count].getElementsByTagName('i')[0].click();
-        setTimeout(videoGetters, 6000);
+        setTimeout(videoGetters, 5000);
     }else{
         playlistIncrementer += 1;
         startFetching();
@@ -84,7 +84,14 @@ function videoGetters(){
     contentName = playContent[0].children[count].getElementsByClassName('title')[0].innerText;
     render.send('videosignaling', playListTitle, contentName);
     count += 1;
-    setTimeout(extractPlayContent, 1000 * 60 * 15);
+    //setTimeout(extractPlayContent, 1000 * 60 * 10);
+    setInterval(function(){
+        console.log("Checking New Download");
+        render.send('downloadChecking');
+    }, 45000);
+    render.once('sendNewDownload', function(e){
+        extractPlayContent();
+    });
 }
 
 function startRipping(){
@@ -117,7 +124,9 @@ function fetchVideo(){
 //Onload.
 window.onload = function(){
     console.log(window.location.href);
-    render.send('loaded');
+    var courseTitle = document.getElementsByClassName('overview-title')[0].getElementsByTagName('h1')[0].innerText;
+    console.log(courseTitle);
+    render.send('loaded', courseTitle);
     render.on('intialData', function(e, data){
        console.log(data);
         maindata = data;

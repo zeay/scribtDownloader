@@ -18,6 +18,7 @@ var match = false;
     quality: process.argv[6]
 };
 const ipcFun = require('./ipcFun');
+global.title = "";
 //-------------Function Started--------------------------------------------------
 function createWindow () {
       // Create the browser window.
@@ -53,10 +54,9 @@ function createWindow () {
     });
     //download Funtion
     win.webContents.session.on('will-download', (event, item, webContents) => {
-  // Set the save path, making Electron not to prompt a save dialog.
         let fileName = item.getFilename();
-      item.setSavePath(cliData.destination+'/'+fileName);
-
+      item.setSavePath(cliData.destination+'/'+global.title+'/'+fileName);
+      console.info("Assets Downloading Started");
       item.on('updated', (event, state) => {
         if (state === 'interrupted') {
           console.log('Download is interrupted but can be resumed');
@@ -78,24 +78,13 @@ function createWindow () {
     })
     
       win.on('closed', () => {
-        // globalShortcut.unregister('Backspace');
-        // Dereference the window object, usually you would store windows
-        // in an array if your app supports multi windows, this is the time
-        // when you should delete the corresponding element.
         win = null
       });
 };
 
 app.on('ready', createWindow);
-//
-// // This method will be called when Electron has finished
-// // initialization and is ready to create browser windows.
-// // Some APIs can only be used after this event occurs.
-//
-// // Quit when all windows are closed.
+
 app.on('window-all-closed', () => {
-  // On macOS it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
   if (process.platform !== 'darwin') {
     app.quit();
   };
