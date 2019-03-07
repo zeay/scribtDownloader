@@ -64,15 +64,16 @@ function createWindow () {
           if (item.isPaused()) {
             console.log('Download is paused')
           } else {
-            console.log(`Received bytes: ${item.getReceivedBytes()}`)
+            console.log(`Received bytes: ${item.getReceivedBytes()}`);
           }
         }
       })
       item.once('done', (event, state) => {
         if (state === 'completed') {
-          console.log('Download successfully')
+          console.log('Download successfully');
+          console.info("If video fetching still don't start it will strat idle time 10 mins PLEASE WAIT");
         } else {
-          console.log(`Download failed: ${state}`)
+          console.log(`Download failed: ${state}`);
         }
       })
     })
