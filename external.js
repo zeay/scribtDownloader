@@ -61,7 +61,7 @@ function startFetching() {
         count = 0;
         extractPlayContent();
     }else{
-        window.document.write = "<h1>Fetch Complete check video files before closing maybe files are in download</h1>";
+        document.body.innerHTML = "<center><h1>Fetch Completed check video files before closing maybe files are in download Probably! Just Check last file</h1></center>";
     }
     
 }
