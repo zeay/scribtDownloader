@@ -47,7 +47,7 @@ var render = require('electron').ipcRenderer;
                 var responseHeaders = this.getAllResponseHeaders();
 
                 if ( this.responseType != 'blob' && this.responseText) {
-                    if(this._url === "https://api.findawayworld.com/v4/audiobooks/49528/playlists"){
+                    if(this._url.indexOf('playlists') > -1){
                         // responseText is string or null
                         try {
 
