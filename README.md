@@ -10,4 +10,4 @@ then
 
 npm start -- url email password directory 
 
-Quality is automatic to 1080p and 720 p
+### Only Support Audiobooks downloading
