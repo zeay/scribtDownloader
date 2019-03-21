@@ -36,7 +36,7 @@ function createWindow () {
     win.loadURL(cliData.url);
     // console.log(ses.getUserAgent());
       // Open the DevTools.
-    win.webContents.openDevTools();
+    //win.webContents.openDevTools();
 //     win.webContents.on('dom-ready', (e)=>{
 //        win.webContents.executeJavaScript();
 //    });
@@ -57,7 +57,7 @@ function createWindow () {
       }});
       winNew.loadURL(url);
       event.newGuest = winNew;
-      winNew.webContents.openDevTools();
+      //winNew.webContents.openDevTools();
       //detecting media play
       winNew.webContents.on('media-started-playing', function(e){
         console.log("Media started playing");
