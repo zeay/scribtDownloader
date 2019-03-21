@@ -11,7 +11,6 @@
   "license": "ISC",
   "dependencies": {
     "electron": "^2.0.9",
-    "m3u8stream": "^0.6.2",
     "request": "^2.88.0",
     "sanitize-filename": "^1.6.1"
   }
